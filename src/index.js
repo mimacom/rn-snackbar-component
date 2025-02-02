@@ -25,12 +25,13 @@ class Snackbar extends Component {
       translateValue: new Animated.Value(0),
       hideDistance: 9999,
     }
+    this.handleLayoutChange = this.handleLayoutChange.bind(this)
+    this.hideSnackbar = this.hideSnackbar.bind(this)
   }
 
   handleLayoutChange(event) {
     this.setState({ hideDistance: event.nativeEvent.layout.height })
   }
-
 
   componentDidMount() {
     this.state.translateValue.setValue(this.props.visible ? 1 : 0)
